@@ -1,10 +1,10 @@
-Installing trytond_account_co
+Installing trytond_account_ec
 =============================
 
 Prerequisites
 -------------
 
- * Python 2.4 or later (http://www.python.org/)
+ * Python 2.7 or later (http://www.python.org/)
  * trytond (http://www.tryton.org/)
  * trytond_account (http://www.tryton.org/)
 
@@ -26,4 +26,4 @@ documentation:
   http://docs.python.org/inst/inst.html
 
 To use without installation, extract the archive into ``trytond/modules`` with
-the directory name account_co.
+the directory name account_ec.
