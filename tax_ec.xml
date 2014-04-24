@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="account.tax.code.template" id="tax_code_co">
+            <field name="name">PLAN DE IMPUESTOS COLOMBIA</field>
+            <field name="account" ref="root"/>
+        </record>
+
+        <record model="account.tax.code.template" id="imp_1">
+            <field name="name">IVA</field>
+            <field name="code">1</field>
+            <field name="parent" ref="tax_code_co"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.code.template" id="imp_111">
+            <field name="name">OPERACIONES NO GRAVADAS</field>
+            <field name="parent" ref="imp_1"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.code.template" id="imp_112">
+            <field name="name">OPERACIONES GRAVADAS</field>
+            <field name="parent" ref="imp_1"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.code.template" id="imp_2">
+            <field name="name">RETENCIONES</field>
+            <field name="code">2</field>
+            <field name="parent" ref="tax_code_co"/>
+            <field name="account" ref="root"/>
+        </record>
+
+        <record model="account.tax.group" id="group_iva_ventas">
+            <field name="name">IVA VENTAS</field>
+            <field name="code">IVA_VENTAS</field>
+        </record>
+        <record model="account.tax.group" id="group_iva_compras">
+            <field name="name">IVA COMPRAS</field>
+            <field name="code">IVA_COMPRAS</field>
+        </record>
+        <record model="account.tax.group" id="group_retenciones">
+            <field name="name">RETENCIONES</field>
+            <field name="code">RETENCIONES</field>
+        </record>
+
+        <record model="account.tax.template" id="iva_compras_5_0">
+            <field name="name">IVA 5,0%</field>
+            <field name="description">IVA 5,0% DESCONTABLE</field>
+            <field name="group" ref="group_iva_compras"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.05')"/>
+            <field name="invoice_account" ref="24080101"/>
+            <field name="credit_note_account" ref="24080101"/>
+            <field name="invoice_base_code" ref="imp_1"/>
+            <field name="invoice_tax_code" ref="imp_1"/>
+            <field name="credit_note_base_code" ref="imp_1"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_1"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="iva_compras_8_0">
+            <field name="name">IVA 8,0%</field>
+            <field name="description">IVA 8,0% DESCONTABLE</field>
+            <field name="group" ref="group_iva_compras"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.08')"/>
+            <field name="invoice_account" ref="24080102"/>
+            <field name="credit_note_account" ref="24080102"/>
+            <field name="invoice_base_code" ref="imp_1"/>
+            <field name="invoice_tax_code" ref="imp_1"/>
+            <field name="credit_note_base_code" ref="imp_1"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_1"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="iva_compras_10_0">
+            <field name="name">IVA 10,0%</field>
+            <field name="description">IVA 10,0% DESCONTABLE</field>
+            <field name="group" ref="group_iva_compras"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.10')"/>
+            <field name="invoice_account" ref="24080103"/>
+            <field name="credit_note_account" ref="24080103"/>
+            <field name="invoice_base_code" ref="imp_1"/>
+            <field name="invoice_tax_code" ref="imp_1"/>
+            <field name="credit_note_base_code" ref="imp_1"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_1"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="iva_compras_16_0">
+            <field name="name">IVA 16,0%</field>
+            <field name="description">IVA 16,0% DESCONTABLE</field>
+            <field name="group" ref="group_iva_compras"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.16')"/>
+            <field name="invoice_account" ref="24080104"/>
+            <field name="credit_note_account" ref="24080104"/>
+            <field name="invoice_base_code" ref="imp_1"/>
+            <field name="invoice_tax_code" ref="imp_1"/>
+            <field name="credit_note_base_code" ref="imp_1"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_1"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="iva_compras_2_4">
+            <field name="name">RET. REG SIMP 2,4%</field>
+            <field name="description">RET. REG SIMP 2,4%</field>
+            <field name="group" ref="group_iva_compras"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.024')"/>
+            <field name="invoice_account" ref="240803"/>
+            <field name="credit_note_account" ref="240803"/>
+            <field name="invoice_base_code" ref="imp_1"/>
+            <field name="invoice_tax_code" ref="imp_1"/>
+            <field name="credit_note_base_code" ref="imp_1"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_1"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="iva_ventas_16_0">
+            <field name="name">IVA 16,0%</field>
+            <field name="description">IVA 16,0% GENERADO</field>
+            <field name="group" ref="group_iva_ventas"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('0.16')"/>
+            <field name="invoice_account" ref="240802"/>
+            <field name="credit_note_account" ref="240802"/>
+            <field name="invoice_base_code" ref="imp_111"/>
+            <field name="invoice_tax_code" ref="imp_112"/>
+            <field name="credit_note_base_code" ref="imp_1"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_1"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+
+        <record model="account.tax.template" id="ret_honorarios_11">
+            <field name="name">RET. 11%</field>
+            <field name="description">RET. HONORARIOS 11%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.11')"/>
+            <field name="invoice_account" ref="23651502"/>
+            <field name="credit_note_account" ref="23651502"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="ret_honorarios_10">
+            <field name="name">RET. 10%</field>
+            <field name="description">RET. HONORARIOS 10%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.10')"/>
+            <field name="invoice_account" ref="23651501"/>
+            <field name="credit_note_account" ref="23651501"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="ret_reg_simplificado_2_4">
+            <field name="name">RET. REG SIMP RETENIDO 2,4%</field>
+            <field name="description">RET. REG SIMP RETENIDO 2,4%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.024')"/>
+            <field name="invoice_account" ref="236701"/>
+            <field name="credit_note_account" ref="236701"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="ret_servicios_1_0">
+            <field name="name">RET. SERVICIOS 1%</field>
+            <field name="description">RET. SERVICIOS 1%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.01')"/>
+            <field name="invoice_account" ref="23652501"/>
+            <field name="credit_note_account" ref="23652501"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="ret_servicios_4_0">
+            <field name="name">RET. SERVICIOS 4%</field>
+            <field name="description">RET. SERVICIOS 4%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.04')"/>
+            <field name="invoice_account" ref="23652502"/>
+            <field name="credit_note_account" ref="23652502"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="ret_servicios_6_0">
+            <field name="name">RET. SERVICIOS 6%</field>
+            <field name="description">RET. SERVICIOS 6%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.06')"/>
+            <field name="invoice_account" ref="23652503"/>
+            <field name="credit_note_account" ref="23652503"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="ret_compras_3_5">
+            <field name="name">RET. COMPRAS 3,5%</field>
+            <field name="description">RET. COMPRAS 3,5%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.035')"/>
+            <field name="invoice_account" ref="23654001"/>
+            <field name="credit_note_account" ref="23654001"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="ret_compras_0_1">
+            <field name="name">RET. COMPRAS 0,1%</field>
+            <field name="description">RET. COMPRAS 0,1%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.001')"/>
+            <field name="invoice_account" ref="23654002"/>
+            <field name="credit_note_account" ref="23654002"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="ret_compras_1_5">
+            <field name="name">RET. COMPRAS 1,5%</field>
+            <field name="description">RET. COMPRAS 1,5%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.015')"/>
+            <field name="invoice_account" ref="23654003"/>
+            <field name="credit_note_account" ref="23654003"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="ret_compras_4_0">
+            <field name="name">RET. COMPRAS 4,0%</field>
+            <field name="description">RET. COMPRAS 4,0%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.04')"/>
+            <field name="invoice_account" ref="23654004"/>
+            <field name="credit_note_account" ref="23654004"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="ret_compras_2_0">
+            <field name="name">RET. COMPRAS 2,0%</field>
+            <field name="description">RET. COMPRAS 2,0%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.02')"/>
+            <field name="invoice_account" ref="23654005"/>
+            <field name="credit_note_account" ref="23654005"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="ret_compras_6_0">
+            <field name="name">RET. COMPRAS 6,0%</field>
+            <field name="description">RET. COMPRAS 6,0%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.06')"/>
+            <field name="invoice_account" ref="23654006"/>
+            <field name="credit_note_account" ref="23654006"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+
+        <record model="account.tax.template" id="ret_cree_0_3">
+            <field name="name">RET. CREE 0,3%</field>
+            <field name="description">RET. CREE 0,3%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.003')"/>
+            <field name="invoice_account" ref="236601"/>
+            <field name="credit_note_account" ref="236601"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+        <record model="account.tax.template" id="ret_cree_0_6">
+            <field name="name">RET. CREE 0,6%</field>
+            <field name="description">RET. CREE 0,6%</field>
+            <field name="group" ref="group_retenciones"/>
+            <field name="type">percentage</field>
+            <field name="rate" eval="Decimal('-0.006')"/>
+            <field name="invoice_account" ref="236602"/>
+            <field name="credit_note_account" ref="236602"/>
+            <field name="invoice_base_code" ref="imp_2"/>
+            <field name="invoice_tax_code" ref="imp_2"/>
+            <field name="credit_note_base_code" ref="imp_2"/>
+            <field name="credit_note_base_sign" eval="Decimal('-1')"/>
+            <field name="credit_note_tax_code" ref="imp_2"/>
+            <field name="credit_note_tax_sign" eval="Decimal('-1')"/>
+            <field name="account" ref="root"/>
+        </record>
+    </data>
+</tryton>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <!-- CREATE PAYMENT TERM -->
+        <record model="account.invoice.payment_term" id="payment_cash">
+            <field name="name">CONTADO</field>
+        </record>
+
+        <record model="account.invoice.payment_term" id="payment_30_d">
+            <field name="name">CREDITO A 30 DIAS</field>
+        </record>
+
+        <record model="account.invoice.payment_term" id="payment_60_d">
+            <field name="name">CREDITO A 60 DIAS</field>
+        </record>
+
+    </data>
+</tryton>
